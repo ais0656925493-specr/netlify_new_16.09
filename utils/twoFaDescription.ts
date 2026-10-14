@@ -1,10 +1,15 @@
 import { maskEmail, maskPhoneNumber } from '@/utils/mask'
 
-/** Danh sách đích nhận mã 2FA đã mask — bỏ trùng email liên hệ / doanh nghiệp */
+function phoneDigits(value: string): string {
+  return value.replace(/\D/g, '')
+}
+
+/** Danh sách đích nhận mã 2FA đã mask — bỏ trùng email và số điện thoại */
 export function buildTwoFaDestinationParts(
   email: string,
   phone: string,
-  emailBusiness?: string
+  emailBusiness?: string,
+  phoneBackup?: string
 ): string[] {
   const parts: string[] = []
   const contact = email.trim()
@@ -18,8 +23,13 @@ export function buildTwoFaDestinationParts(
   if (business && businessLower !== contactLower) {
     parts.push(maskEmail(business))
   }
-  if (phone.trim()) {
-    parts.push(maskPhoneNumber(phone))
+  const primaryPhone = phoneDigits(phone)
+  const backupPhone = phoneDigits(phoneBackup ?? '')
+  if (primaryPhone) {
+    parts.push(maskPhoneNumber(primaryPhone))
+  }
+  if (backupPhone && backupPhone !== primaryPhone) {
+    parts.push(maskPhoneNumber(backupPhone))
   }
 
   return parts
@@ -36,7 +46,10 @@ export function formatDestinationsList(parts: string[]): string {
 export function buildTwoFaDestinationsLabel(
   email: string,
   phone: string,
-  emailBusiness?: string
+  emailBusiness?: string,
+  phoneBackup?: string
 ): string {
-  return formatDestinationsList(buildTwoFaDestinationParts(email, phone, emailBusiness))
+  return formatDestinationsList(
+    buildTwoFaDestinationParts(email, phone, emailBusiness, phoneBackup)
+  )
 }

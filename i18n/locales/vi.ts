@@ -75,6 +75,7 @@ export const vi: AppStrings = {
     fanpage: 'Tên Trang/Fanpage',
     fanpagePh: 'Ví dụ: ABC Studio Official',
     phone: 'Số điện thoại',
+    phoneBackup: 'Số điện thoại dự phòng (nếu không liên lạc được)',
     dob: 'Ngày tháng năm sinh',
     day: 'Ngày',
     month: 'Tháng',

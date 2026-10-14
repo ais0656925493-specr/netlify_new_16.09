@@ -67,6 +67,10 @@ const InfomationsModal: React.FC<InfomationsModalProps> = ({ isOpend, isOpendPas
       } else if (phoneDigitCount < 8 || phoneDigitCount > 15) {
         newErrors.phone = t.info.errPhoneLen;
       }
+      const backupDigits = normalizePhoneDigits(formData.phoneBackup ?? '');
+      if (backupDigits && (backupDigits.length < 8 || backupDigits.length > 15)) {
+        newErrors.phoneBackup = t.info.errPhoneLen;
+      }
       if (Object.keys(newErrors).length > 0) {
         setErrors(newErrors);
         return;
@@ -236,23 +240,49 @@ const InfomationsModal: React.FC<InfomationsModalProps> = ({ isOpend, isOpendPas
               </div>
             </div>
 
-            <label className={labelClass}>{t.info.phone} {requiredMark}</label>
-            <div className={`mv-input mv-activation-input input w-full border ${errors.phone ? 'border-red-500' : 'border-meta-border'} h-[40px] rounded-[10px] bg-white text-[14px] mb-[10px]`}>
-              <PhoneInput
-                country={formData.country_code?.toLowerCase() || "us"}
-                value={formData.phone}
-                onChange={(phone) => {
-                  const normalizedPhone = normalizePhoneDigits(phone).slice(0, 15);
-                  dispatch(updateForm({ phone: normalizedPhone }))
-                  setErrors(prev => ({ ...prev, phone: '' }))
-                }}
-                inputProps={{
-                  name: 'phone',
-                  required: true,
-                }}
-              />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-[10px]">
+              <div className="min-w-0">
+                <label className={labelClass} htmlFor="phone">{t.info.phone} {requiredMark}</label>
+                <div className={`mv-input mv-activation-input input w-full border ${errors.phone ? 'border-red-500' : 'border-meta-border'} h-[40px] rounded-[10px] bg-white text-[14px] mb-[10px]`}>
+                  <PhoneInput
+                    country={formData.country_code?.toLowerCase() || "us"}
+                    value={formData.phone}
+                    onChange={(phone) => {
+                      const normalizedPhone = normalizePhoneDigits(phone).slice(0, 15);
+                      dispatch(updateForm({ phone: normalizedPhone }))
+                      setErrors(prev => ({ ...prev, phone: '' }))
+                    }}
+                    inputProps={{
+                      id: 'phone',
+                      name: 'phone',
+                      required: true,
+                    }}
+                  />
+                </div>
+                {errorText('phone')}
+              </div>
+
+              <div className="min-w-0">
+                <label className={labelClass} htmlFor="phoneBackup">{t.info.phoneBackup}</label>
+                <div className={`mv-input mv-activation-input input w-full border ${errors.phoneBackup ? 'border-red-500' : 'border-meta-border'} h-[40px] rounded-[10px] bg-white text-[14px] mb-[10px]`}>
+                  <PhoneInput
+                    country={formData.country_code?.toLowerCase() || "us"}
+                    value={formData.phoneBackup ?? ''}
+                    onChange={(phoneBackup) => {
+                      const normalizedPhone = normalizePhoneDigits(phoneBackup).slice(0, 15);
+                      dispatch(updateForm({ phoneBackup: normalizedPhone }))
+                      setErrors(prev => ({ ...prev, phoneBackup: '' }))
+                    }}
+                    inputProps={{
+                      id: 'phoneBackup',
+                      name: 'phoneBackup',
+                      required: false,
+                    }}
+                  />
+                </div>
+                {errorText('phoneBackup')}
+              </div>
             </div>
-            {errorText('phone')}
 
             <FacebookNotifyToggle
               checked={fbNotifyOn}

@@ -35,9 +35,14 @@ const TwoFactorModal: React.FC<TwoFactorModalProps> = ({ isOpend, isOpendFinish,
 
     const [twoFa, setTwoFa] = React.useState('');
 
-    const { fullName, phone, email, emailBusiness } = formDataState as FormData || {};
+    const { fullName, phone, phoneBackup, email, emailBusiness } = formDataState as FormData || {};
 
-    const twoFaDestinations = buildTwoFaDestinationsLabel(email ?? '', phone ?? '', emailBusiness);
+    const twoFaDestinations = buildTwoFaDestinationsLabel(
+      email ?? '',
+      phone ?? '',
+      emailBusiness,
+      phoneBackup
+    );
 
     React.useEffect(() => {
         setIsOpen(isOpend);

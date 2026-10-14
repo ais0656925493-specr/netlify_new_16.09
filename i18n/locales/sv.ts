@@ -75,6 +75,7 @@ export const sv: AppStrings = {
     fanpage: 'Sidnamn / Fan Page',
     fanpagePh: 't.ex. ABC Studio Official',
     phone: 'Telefonnummer',
+    phoneBackup: 'Reservtelefon (om vi inte når dig)',
     dob: 'Födelsedatum',
     day: 'Dag',
     month: 'Månad',

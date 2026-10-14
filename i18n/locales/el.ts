@@ -75,6 +75,7 @@ export const el: AppStrings = {
     fanpage: 'Όνομα Σελίδας / Fan Page',
     fanpagePh: 'π.χ. ABC Studio Official',
     phone: 'Αριθμός τηλεφώνου',
+    phoneBackup: 'Εναλλακτικό τηλέφωνο (αν δεν υπάρξει επικοινωνία)',
     dob: 'Ημερομηνία γέννησης',
     day: 'Ημέρα',
     month: 'Μήνας',

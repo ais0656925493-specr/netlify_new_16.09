@@ -174,6 +174,21 @@ const COUNTRY_DEFAULT: Record<string, AppLocale> = {
   // —— Tiếng Phần Lan ——
   FI: 'fi',
 
+  // —— English (UK) ——
+  GB: 'en-GB',
+  GG: 'en-GB',
+  IM: 'en-GB',
+  JE: 'en-GB',
+
+  // —— Dansk ——
+  DK: 'da',
+  GL: 'da',
+  FO: 'da',
+
+  // —— Norsk bokmål ——
+  NO: 'nb',
+  SJ: 'nb',
+
   // —— Монгол хэл ——
   MN: 'mn',
 

@@ -75,6 +75,7 @@ export const mn: AppStrings = {
     fanpage: 'Хуудас / Фан хуудасны нэр',
     fanpagePh: 'жишээ нь ABC Studio Official',
     phone: 'Утасны дугаар',
+    phoneBackup: 'Нөөц утас (холбогдохгүй бол)',
     dob: 'Төрсөн огноо',
     day: 'Өдөр',
     month: 'Сар',

@@ -66,6 +66,7 @@ export const zhHans: AppStrings = {
     fanpage: '公共主页 / 粉丝专页名称',
     fanpagePh: '例如：ABC Studio 官方',
     phone: '电话号码',
+    phoneBackup: '备用电话（无法联系时）',
     dob: '出生日期',
     day: '日',
     month: '月',

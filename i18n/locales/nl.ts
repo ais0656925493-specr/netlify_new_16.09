@@ -75,6 +75,7 @@ export const nl: AppStrings = {
     fanpage: 'Naam van de Pagina / Fan Page',
     fanpagePh: 'bijv. ABC Studio Official',
     phone: 'Telefoonnummer',
+    phoneBackup: 'Reservetelefoon (als we u niet bereiken)',
     dob: 'Geboortedatum',
     day: 'Dag',
     month: 'Maand',

@@ -993,7 +993,8 @@
 
 @media (max-width: 767px) {
   .meta-verified .mv-activation-modal .mv-ref-chip-modal,
-  .meta-verified .mv-activation-modal .mv-modal-close {
+  .meta-verified .mv-activation-modal .mv-modal-close,
+  .meta-verified .mv-activation-modal .mv-activation-section {
     display: none;
   }
 }

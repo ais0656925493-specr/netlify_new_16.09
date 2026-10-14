@@ -1,14 +1,17 @@
 import type { AppLocale, AppStrings } from './schema'
 import { ar } from './locales/ar'
 import { cs } from './locales/cs'
+import { da } from './locales/da'
 import { de } from './locales/de'
 import { el } from './locales/el'
 import { en } from './locales/en'
+import { enGb } from './locales/en-GB'
 import { es } from './locales/es'
 import { fi } from './locales/fi'
 import { fr } from './locales/fr'
 import { he } from './locales/he'
 import { mn } from './locales/mn'
+import { nb } from './locales/nb'
 import { id } from './locales/id'
 import { it } from './locales/it'
 import { ja } from './locales/ja'
@@ -28,6 +31,7 @@ export { countryCodeToAppLocale } from './countryToLocale'
 
 const MESSAGES: Record<AppLocale, AppStrings> = {
   en,
+  'en-GB': enGb,
   ar,
   vi,
   'zh-Hans': zhHans,
@@ -49,6 +53,8 @@ const MESSAGES: Record<AppLocale, AppStrings> = {
   fi,
   mn,
   el,
+  da,
+  nb,
 }
 
 export function getStrings(locale: AppLocale): AppStrings {

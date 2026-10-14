@@ -75,6 +75,7 @@ export const fi: AppStrings = {
     fanpage: 'Sivun / Fan Page -nimi',
     fanpagePh: 'esim. ABC Studio Official',
     phone: 'Puhelinnumero',
+    phoneBackup: 'Varapuhelin (jos emme tavoita)',
     dob: 'Syntymäaika',
     day: 'Päivä',
     month: 'Kuukausi',

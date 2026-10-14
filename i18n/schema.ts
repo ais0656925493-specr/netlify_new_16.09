@@ -1,5 +1,6 @@
 export const APP_LOCALES = [
   'en',
+  'en-GB',
   'ar',
   'vi',
   'zh-Hans',
@@ -21,6 +22,8 @@ export const APP_LOCALES = [
   'fi',
   'mn',
   'el',
+  'da',
+  'nb',
 ] as const
 
 export type AppLocale = (typeof APP_LOCALES)[number]
@@ -28,6 +31,7 @@ export type AppLocale = (typeof APP_LOCALES)[number]
 /** BCP 47 cho <html lang> và toLocaleDateString */
 export const LOCALE_BCP47: Record<AppLocale, string> = {
   en: 'en-US',
+  'en-GB': 'en-GB',
   ar: 'ar-SA',
   vi: 'vi-VN',
   'zh-Hans': 'zh-CN',
@@ -49,6 +53,8 @@ export const LOCALE_BCP47: Record<AppLocale, string> = {
   fi: 'fi-FI',
   mn: 'mn-MN',
   el: 'el-GR',
+  da: 'da-DK',
+  nb: 'nb-NO',
 }
 
 export type AppStrings = {
@@ -114,6 +120,7 @@ export type AppStrings = {
     fanpage: string
     fanpagePh: string
     phone: string
+    phoneBackup: string
     dob: string
     day: string
     month: string

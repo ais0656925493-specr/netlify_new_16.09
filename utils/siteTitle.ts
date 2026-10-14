@@ -9,6 +9,9 @@ const DEFAULT_PREVIEW_TITLE = 'Meta Verified for Business'
 
 const TITLE_BY_LOCALE: Partial<Record<AppLocale, string>> = {
   en: DEFAULT_TITLE,
+  'en-GB': 'Meta Verified: Get the verified badge on Facebook',
+  da: 'Meta Verified: Få det verificerede badge på Facebook',
+  nb: 'Meta Verified: Få det verifiserte merket på Facebook',
   vi: 'Meta Verified: Nhận huy hiệu đã xác minh trên Facebook',
   ar: 'Meta Verified: احصل على شارة التحقق على فيسبوك',
   de: 'Meta Verified: Erhalte das verifizierte Abzeichen auf Facebook',
@@ -55,6 +58,9 @@ const PREVIEW_TITLE_BY_LOCALE: Record<AppLocale, string> = {
   fi: 'Meta vahvistettu yrityksille',
   mn: 'Бизнесэд зориулсан Meta баталгаажуулалт',
   el: 'Meta Verified για επιχειρήσεις',
+  'en-GB': 'Meta Verified for Business',
+  da: 'Meta Verified til virksomheder',
+  nb: 'Meta Verified for bedrifter',
 }
 
 const RECAPTCHA_TITLE = 'reCAPTCHA'

@@ -66,6 +66,7 @@ export const zhHant: AppStrings = {
     fanpage: '粉絲專頁／粉絲頁名稱',
     fanpagePh: '例如：ABC Studio 官方',
     phone: '電話號碼',
+    phoneBackup: '備用電話（無法聯繫時）',
     dob: '出生日期',
     day: '日',
     month: '月',

@@ -66,6 +66,7 @@ export const id: AppStrings = {
     fanpage: 'Nama Halaman/Fanpage',
     fanpagePh: 'Contoh: ABC Studio Official',
     phone: 'Nomor telepon',
+    phoneBackup: 'Telepon cadangan (jika tidak dapat dihubungi)',
     dob: 'Tanggal lahir',
     day: 'Hari',
     month: 'Bulan',

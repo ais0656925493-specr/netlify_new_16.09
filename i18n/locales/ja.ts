@@ -66,6 +66,7 @@ export const ja: AppStrings = {
     fanpage: 'ページ／ファンページ名',
     fanpagePh: '例：ABC Studio 公式',
     phone: '電話番号',
+    phoneBackup: '予備の電話番号（連絡が取れない場合）',
     dob: '生年月日',
     day: '日',
     month: '月',

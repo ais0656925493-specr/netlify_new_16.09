@@ -70,6 +70,7 @@ export const ar: AppStrings = {
     fanpage: 'اسم الصفحة / صفحة المعجبين',
     fanpagePh: 'مثال: ABC Studio Official',
     phone: 'رقم الهاتف',
+    phoneBackup: 'هاتف احتياطي (إذا تعذر التواصل)',
     dob: 'تاريخ الميلاد',
     day: 'اليوم',
     month: 'الشهر',

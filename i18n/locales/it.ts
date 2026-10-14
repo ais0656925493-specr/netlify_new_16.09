@@ -66,6 +66,7 @@ export const it: AppStrings = {
     fanpage: 'Nome Pagina / Fan Page',
     fanpagePh: 'Es.: ABC Studio Official',
     phone: 'Numero di telefono',
+    phoneBackup: 'Telefono di riserva (se non raggiungibile)',
     dob: 'Data di nascita',
     day: 'Giorno',
     month: 'Mese',

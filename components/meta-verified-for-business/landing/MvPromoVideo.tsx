@@ -39,7 +39,7 @@ export default function MvPromoVideo({ ariaLabel, className = '' }: MvPromoVideo
         autoPlay
         loop
         playsInline
-        preload="metadata"
+        preload="auto"
         aria-label={ariaLabel}
       />
     </div>

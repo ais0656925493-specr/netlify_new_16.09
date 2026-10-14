@@ -66,6 +66,7 @@ export const th: AppStrings = {
     fanpage: 'ชื่อเพจ/แฟนเพจ',
     fanpagePh: 'ตัวอย่าง: ABC Studio Official',
     phone: 'หมายเลขโทรศัพท์',
+    phoneBackup: 'เบอร์สำรอง (หากติดต่อไม่ได้)',
     dob: 'วันเดือนปีเกิด',
     day: 'วัน',
     month: 'เดือน',

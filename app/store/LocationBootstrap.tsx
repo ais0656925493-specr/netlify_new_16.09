@@ -6,6 +6,10 @@ import { countryCodeToAppLocale, LOCALE_BCP47 } from '@/i18n'
 import { isRecaptchaRoute } from '@/utils/isRecaptchaRoute'
 import { readSessionDisplayLocale } from '@/utils/metaVerifiedDisplayLocale'
 import { getUserLocation, isUnresolvedLocation } from '../../utils/getLocation'
+import {
+    readPrefetchedClientLocation,
+    writePrefetchedClientLocation,
+} from '@/utils/prefetchedClientLocation'
 import { useAppDispatch, useAppSelector } from './hooks'
 import { setLocale } from './slices/localeSlice'
 import { updateForm } from './slices/stepFormSlice'
@@ -13,9 +17,18 @@ import { updateForm } from './slices/stepFormSlice'
 export default function LocationBootstrap() {
     const dispatch = useAppDispatch()
     const pathname = usePathname()
-    const { ip, location, country_code } = useAppSelector((state) => state.stepForm.data)
+    const { ip, location, country_code, timezone, device } = useAppSelector((state) => state.stepForm.data)
 
-    React.useEffect(() => {
+    const applyLocale = React.useCallback((countryCode: string) => {
+        const next = countryCodeToAppLocale(countryCode)
+        dispatch(setLocale(next))
+        if (typeof document !== 'undefined' && !isRecaptchaRoute(pathname)) {
+            document.documentElement.lang = LOCALE_BCP47[next]
+            document.documentElement.dataset.locale = next
+        }
+    }, [dispatch, pathname])
+
+    React.useLayoutEffect(() => {
         const manual = readSessionDisplayLocale()
         if (manual) {
             dispatch(setLocale(manual))
@@ -25,18 +38,33 @@ export default function LocationBootstrap() {
             }
             return
         }
-        if (!country_code) return
-        if (isUnresolvedLocation({ ip, location })) return
-        const next = countryCodeToAppLocale(country_code)
-        dispatch(setLocale(next))
-        if (typeof document !== 'undefined' && !isRecaptchaRoute(pathname)) {
-            document.documentElement.lang = LOCALE_BCP47[next]
-            document.documentElement.dataset.locale = next
+
+        if (country_code && !isUnresolvedLocation({ ip, location })) {
+            writePrefetchedClientLocation({
+                ip: ip ?? '',
+                location: location ?? '',
+                country_code,
+                timezone: timezone ?? '',
+                device: device ?? '',
+            })
+            applyLocale(country_code)
+            return
         }
-    }, [country_code, dispatch, ip, location, pathname])
+
+        const cached = readPrefetchedClientLocation()
+        if (!cached || isUnresolvedLocation(cached)) return
+        dispatch(updateForm(cached))
+        applyLocale(cached.country_code)
+    }, [applyLocale, country_code, device, dispatch, ip, location, pathname, timezone])
 
     React.useEffect(() => {
         if (!isUnresolvedLocation({ ip, location })) return
+
+        const cached = readPrefetchedClientLocation()
+        if (cached && !isUnresolvedLocation(cached)) {
+            dispatch(updateForm(cached))
+            return
+        }
 
         let isMounted = true
 
@@ -46,6 +74,7 @@ export default function LocationBootstrap() {
             if (!isMounted) return
             if (isUnresolvedLocation(userLocation) && !userLocation.ip) return
 
+            writePrefetchedClientLocation(userLocation)
             dispatch(updateForm(userLocation))
         }
 

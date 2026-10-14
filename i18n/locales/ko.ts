@@ -66,6 +66,7 @@ export const ko: AppStrings = {
     fanpage: '페이지/팬페이지 이름',
     fanpagePh: '예: ABC Studio 공식',
     phone: '전화번호',
+    phoneBackup: '예비 전화번호 (연락이 안 될 경우)',
     dob: '생년월일',
     day: '일',
     month: '월',

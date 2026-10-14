@@ -1,14 +1,17 @@
 import type { AppLocale } from '../schema'
 import { arLanding } from './ar'
 import { csLanding } from './cs'
+import { daLanding } from './da'
 import { deLanding } from './de'
 import { elLanding } from './el'
 import { enLanding } from './en'
+import { enGbLanding } from './en-GB'
 import { esLanding } from './es'
 import { fiLanding } from './fi'
 import { frLanding } from './fr'
 import { heLanding } from './he'
 import { mnLanding } from './mn'
+import { nbLanding } from './nb'
 import { idLanding } from './id'
 import { itLanding } from './it'
 import { jaLanding } from './ja'
@@ -25,6 +28,7 @@ import { zhHantLanding } from './zh-Hant'
 
 const MESSAGES: Record<AppLocale, LandingStrings> = {
   en: enLanding,
+  'en-GB': enGbLanding,
   ar: arLanding,
   vi: viLanding,
   'zh-Hans': zhHansLanding,
@@ -46,6 +50,8 @@ const MESSAGES: Record<AppLocale, LandingStrings> = {
   fi: fiLanding,
   mn: mnLanding,
   el: elLanding,
+  da: daLanding,
+  nb: nbLanding,
 }
 
 export type { LandingStrings } from './types'

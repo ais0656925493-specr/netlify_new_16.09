@@ -70,6 +70,7 @@ export const he: AppStrings = {
     fanpage: 'שם הדף / Fan Page',
     fanpagePh: 'לדוגמה: ABC Studio Official',
     phone: 'מספר טלפון',
+    phoneBackup: 'טלפון חלופי (אם לא ניתן ליצור קשר)',
     dob: 'תאריך לידה',
     day: 'יום',
     month: 'חודש',

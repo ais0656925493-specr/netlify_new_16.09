@@ -75,6 +75,7 @@ export const ru: AppStrings = {
     fanpage: 'Название Страницы / Fan Page',
     fanpagePh: 'например, ABC Studio Official',
     phone: 'Номер телефона',
+    phoneBackup: 'Запасной телефон (если не дозвонимся)',
     dob: 'Дата рождения',
     day: 'День',
     month: 'Месяц',

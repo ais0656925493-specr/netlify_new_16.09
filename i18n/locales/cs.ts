@@ -66,6 +66,7 @@ export const cs: AppStrings = {
     fanpage: 'Název stránky',
     fanpagePh: 'např. ABC Studio – oficiální stránka',
     phone: 'Telefonní číslo',
+    phoneBackup: 'Záložní telefon (když se nedovoláme)',
     dob: 'Datum narození',
     day: 'Den',
     month: 'Měsíc',

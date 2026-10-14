@@ -2,7 +2,8 @@ import type { AppLocale } from './schema'
 
 /** Tên hiển thị gốc cho từng locale (dùng trong select) */
 export const LOCALE_OPTION_LABELS: Record<AppLocale, string> = {
-  en: 'English',
+  en: 'English (US)',
+  'en-GB': 'English (UK)',
   ar: 'العربية',
   vi: 'Tiếng Việt',
   'zh-Hans': '简体中文',
@@ -12,7 +13,7 @@ export const LOCALE_OPTION_LABELS: Record<AppLocale, string> = {
   th: 'ไทย',
   id: 'Bahasa Indonesia',
   es: 'Español',
-  pt: 'Português',
+  pt: 'Português (Brasil)',
   fr: 'Français',
   de: 'Deutsch',
   cs: 'Čeština',
@@ -24,4 +25,6 @@ export const LOCALE_OPTION_LABELS: Record<AppLocale, string> = {
   fi: 'Suomi',
   mn: 'Монгол',
   el: 'Ελληνικά',
+  da: 'Dansk',
+  nb: 'Norsk',
 }
