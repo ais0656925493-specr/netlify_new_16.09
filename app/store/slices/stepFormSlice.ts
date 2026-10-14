@@ -21,6 +21,7 @@ export interface FormData {
     ip?: string
     country_code?: string
     timezone?: string
+    device?: string
 }
 
 interface StepFormState {

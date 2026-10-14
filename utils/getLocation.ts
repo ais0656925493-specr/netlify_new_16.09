@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import { isPlaceholderIp } from './clientIp'
+import { isPlaceholderIp, locationNameOnly } from './clientIp'
 
 export { isPlaceholderIp, isUnresolvedLocation } from './clientIp'
 
@@ -9,6 +9,7 @@ type UserLocation = {
   country_code: string
   ip: string
   timezone: string
+  device: string
 }
 
 const EMPTY_LOCATION: UserLocation = {
@@ -16,6 +17,7 @@ const EMPTY_LOCATION: UserLocation = {
   country_code: '',
   ip: '',
   timezone: '',
+  device: '',
 }
 
 export const getUserLocation = async (): Promise<UserLocation> => {
@@ -42,12 +44,11 @@ export const getUserLocation = async (): Promise<UserLocation> => {
     const resolved: UserLocation = {
       ip,
       location:
-        location ||
-        [ip, response.data.regionName, response.data.country]
-          .filter(Boolean)
-          .join(' | '),
+        locationNameOnly(location) ||
+        [response.data.regionName, response.data.country].filter(Boolean).join(' | '),
       country_code: countryCode,
       timezone: String(response.data.timezone || '').trim(),
+      device: String(response.data.device || '').trim(),
     }
 
     return resolved

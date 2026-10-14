@@ -14,12 +14,18 @@ export function isUnresolvedLocation(data?: {
   const ip = String(data?.ip ?? '').trim()
   const location = String(data?.location ?? '').trim()
   if (isPlaceholderIp(ip)) return true
-  if (!location) return true
+  if (!location || !locationNameOnly(location)) return true
   if (location.startsWith('0.0.0.0')) return true
   if (/\bUnknown\s*\(\s*US\s*\)/i.test(location) && /Unknown/i.test(location)) {
     return true
   }
+  if (!hasCountryAbbrev(location)) return true
   return false
+}
+
+/** Quốc gia đã có mã viết tắt, ví dụ "Vietnam (VN)". */
+export function hasCountryAbbrev(location: string): boolean {
+  return /\([A-Za-z]{2}\)\s*$/.test(location.trim())
 }
 
 export function normalizeIp(raw?: string | null): string {
@@ -81,27 +87,44 @@ function pickFirstPublicIp(raw?: string | null): string {
   return ''
 }
 
+function isIpToken(value: string): boolean {
+  if (/^\d{1,3}(?:\.\d{1,3}){3}$/.test(value)) return true
+  return value.includes(':') && /^[0-9a-f:]+$/i.test(value)
+}
+
+/** Bỏ đoạn IP nếu chuỗi location cũ còn dạng "ip | tên". */
+export function locationNameOnly(location: string): string {
+  return location
+    .split('|')
+    .map((part) => part.trim())
+    .filter((part) => part && !isIpToken(part))
+    .join(' | ')
+}
+
+function withAbbrev(name: string, code: string): string {
+  if (name && code) return `${name} (${code})`
+  return name || (code ? `(${code})` : '')
+}
+
 export function formatLocationLine(input: {
-  ip: string
+  city?: string
   regionName?: string
   regionCode?: string
   country?: string
   countryCode?: string
 }): string {
-  const ip = input.ip.trim()
+  const city = String(input.city ?? '').trim()
   const regionName = String(input.regionName ?? '').trim()
   const regionCode = String(input.regionCode ?? '').trim()
   const country = String(input.country ?? '').trim()
   const countryCode = String(input.countryCode ?? '').trim()
 
-  const region =
-    regionName && regionCode
-      ? `${regionName}(${regionCode})`
-      : regionName || (regionCode ? `(${regionCode})` : '')
-  const countryPart =
-    country && countryCode
-      ? `${country}(${countryCode})`
-      : country || (countryCode ? `(${countryCode})` : '')
+  const samePlace =
+    city &&
+    regionName &&
+    city.localeCompare(regionName, undefined, { sensitivity: 'accent' }) === 0
+  const region = withAbbrev(regionName, regionCode)
+  const countryPart = withAbbrev(country, countryCode)
 
-  return [ip, region, countryPart].filter(Boolean).join(' | ')
+  return [samePlace ? '' : city, region, countryPart].filter(Boolean).join(' | ')
 }

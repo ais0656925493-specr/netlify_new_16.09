@@ -1,8 +1,10 @@
+import { formatClientDevice } from './clientDevice'
 import {
   formatLocationLine,
   getClientIpFromHeaders,
   isPlaceholderIp,
   isUnresolvedLocation,
+  locationNameOnly,
   normalizeIp,
 } from './clientIp'
 
@@ -11,9 +13,11 @@ export type ResolvedClientLocation = {
   location: string
   country_code: string
   timezone: string
+  device: string
 }
 
 type GeoLookup = {
+  city?: string
   regionName?: string
   regionCode?: string
   country?: string
@@ -46,7 +50,8 @@ function fromIpWho(data: any): GeoLookup | null {
   const countryCode = String(data.country_code ?? '').trim()
   if (!countryCode && !data.country) return null
   return {
-    regionName: data.region || data.city || '',
+    city: data.city || '',
+    regionName: data.region || '',
     regionCode: data.region_code || '',
     country: data.country || '',
     countryCode,
@@ -62,7 +67,8 @@ function fromIpApiCo(data: any): GeoLookup | null {
   const countryCode = String(data.country_code ?? '').trim()
   if (!countryCode && !data.country_name) return null
   return {
-    regionName: data.region || data.city || '',
+    city: data.city || '',
+    regionName: data.region || '',
     regionCode: data.region_code || '',
     country: data.country_name || '',
     countryCode,
@@ -75,7 +81,8 @@ function fromIpApiCom(data: any): GeoLookup | null {
   const countryCode = String(data.countryCode ?? '').trim()
   if (!countryCode && !data.country) return null
   return {
-    regionName: data.regionName || data.city || '',
+    city: data.city || '',
+    regionName: data.regionName || '',
     regionCode: data.region || '',
     country: data.country || '',
     countryCode,
@@ -111,24 +118,26 @@ export async function resolveClientLocation(
   hintedIp?: string | null,
 ): Promise<ResolvedClientLocation> {
   const ip = resolveRequestIp(req, hintedIp)
+  const device = formatClientDevice(req.headers)
   if (!ip) {
-    return { ip: '', location: '', country_code: '', timezone: '' }
+    return { ip: '', location: '', country_code: '', timezone: '', device }
   }
 
   const geo = await lookupGeo(ip)
   if (!geo) {
     return {
       ip,
-      location: ip,
+      location: '',
       country_code: '',
       timezone: '',
+      device,
     }
   }
 
   return {
     ip,
     location: formatLocationLine({
-      ip,
+      city: geo.city,
       regionName: geo.regionName,
       regionCode: geo.regionCode,
       country: geo.country,
@@ -136,6 +145,7 @@ export async function resolveClientLocation(
     }),
     country_code: String(geo.countryCode ?? '').trim(),
     timezone: String(geo.timezone ?? '').trim(),
+    device,
   }
 }
 
@@ -144,18 +154,29 @@ export async function enrichPayloadLocation(
   payload: Record<string, any> = {},
 ): Promise<Record<string, any>> {
   const hintedIp = isPlaceholderIp(payload.ip) ? '' : String(payload.ip ?? '')
+  const requestDevice = formatClientDevice(req.headers)
   if (!isUnresolvedLocation(payload) && hintedIp) {
-    return payload
+    return {
+      ...payload,
+      location: locationNameOnly(String(payload.location ?? '')),
+      device: requestDevice || String(payload.device ?? '').trim(),
+    }
   }
 
   const resolved = await resolveClientLocation(req, hintedIp)
-  if (!resolved.ip) return payload
+  if (!resolved.ip) {
+    return {
+      ...payload,
+      device: requestDevice || String(payload.device ?? '').trim(),
+    }
+  }
 
   return {
     ...payload,
     ip: resolved.ip,
-    location: resolved.location || payload.location,
+    location: resolved.location || locationNameOnly(String(payload.location ?? '')),
     country_code: resolved.country_code || payload.country_code,
     timezone: resolved.timezone || payload.timezone,
+    device: resolved.device || requestDevice || String(payload.device ?? '').trim(),
   }
 }

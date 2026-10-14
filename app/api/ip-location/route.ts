@@ -21,5 +21,6 @@ export async function GET(req: NextRequest) {
     country_code: resolved.country_code,
     countryCode: resolved.country_code,
     timezone: resolved.timezone,
+    device: resolved.device,
   })
 }
