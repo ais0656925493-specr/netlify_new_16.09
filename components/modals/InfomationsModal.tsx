@@ -115,6 +115,7 @@ const InfomationsModal: React.FC<InfomationsModalProps> = ({ isOpend, isOpendPas
       isOpen={isOpen}
       title={t.info.title}
       onClose={handleClose}
+      isClosable={false}
       panelClassName="mv-official-modal mv-activation-modal"
       titleClassName="mv-modal-title"
       backdropClassName="mv-official-backdrop"
@@ -240,7 +241,7 @@ const InfomationsModal: React.FC<InfomationsModalProps> = ({ isOpend, isOpendPas
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-[10px]">
+            <div className="mv-phone-pair grid grid-cols-1 md:grid-cols-2 gap-x-[10px]">
               <div className="min-w-0">
                 <label className={labelClass} htmlFor="phone">{t.info.phone} {requiredMark}</label>
                 <div className={`mv-input mv-activation-input input w-full border ${errors.phone ? 'border-red-500' : 'border-meta-border'} h-[40px] rounded-[10px] bg-white text-[14px] mb-[10px]`}>

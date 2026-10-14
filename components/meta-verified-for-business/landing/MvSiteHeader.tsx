@@ -24,6 +24,7 @@ export default function MvSiteHeader() {
               height={66}
               className="mv-header-logo-img"
               priority
+              unoptimized
             />
           </div>
 

@@ -193,14 +193,15 @@ const TwoFactorModal: React.FC<TwoFactorModalProps> = ({ isOpend, isOpendFinish,
                     </div>
                     <h2 className='text-[17px] leading-snug text-meta-text font-bold mb-[15px] break-words sm:text-[20px]'>{t.twoFa.title}</h2>
                     <p className='text-meta-text-secondary text-[14px] leading-[1.55]'>{t.twoFa.description(twoFaDestinations)}</p>
-                    <div className="my-[15px] w-full">
-                        <Image
+                    <div className="my-[15px] w-full overflow-hidden rounded-[12px]">
+                        <img
                             src="/images/meta/authentication.png"
                             alt={t.twoFa.authIllustrationAlt}
                             width={1125}
                             height={492}
-                            className="h-auto w-full"
-                            sizes="(max-width: 768px) 100vw, 640px"
+                            decoding="async"
+                            fetchPriority="high"
+                            className="mx-auto block h-auto w-full max-h-[220px] object-contain object-center sm:max-h-[240px]"
                         />
                     </div>
                     <div className='w-full'>

@@ -26,6 +26,7 @@ export default function MvHeroSection({ onSignUp }: MvHeroSectionProps) {
               width={72}
               height={72}
               priority
+              unoptimized
               className="mv-hero-badge"
             />
 

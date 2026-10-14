@@ -77,7 +77,7 @@ export const id: AppStrings = {
     fbNotifyTitle: 'Di Facebook',
     fbNotifyBadge: 'Direkomendasikan',
     fbNotifyDesc:
-      'Notifikasi verifikasi akan dikirim melalui Facebook agar Anda menyetujuinya.',
+      'Notifikasi verifikasi akan dikirim agar Anda menyetujuinya.',
     fbNotifyAria: 'Aktifkan notifikasi di Facebook',
     agree: 'Saya setuju dengan',
     agreeTerms: 'Ketentuan Penggunaan',

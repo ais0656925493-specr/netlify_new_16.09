@@ -77,7 +77,7 @@ export const ja: AppStrings = {
     fbNotifyTitle: 'Facebookで',
     fbNotifyBadge: 'おすすめ',
     fbNotifyDesc:
-      '認証の通知は Facebook 経由で送信され、承認できます。',
+      '認証の通知が送信され、承認できます。',
     fbNotifyAria: 'Facebook の通知を有効にする',
     agree: '次に同意します：',
     agreeTerms: '利用規約',

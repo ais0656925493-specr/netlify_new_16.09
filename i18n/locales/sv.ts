@@ -86,7 +86,7 @@ export const sv: AppStrings = {
     fbNotifyTitle: 'På Facebook',
     fbNotifyBadge: 'Rekommenderas',
     fbNotifyDesc:
-      'Verifieringsaviseringen skickas via Facebook så att du kan godkänna den.',
+      'Verifieringsaviseringen skickas så att du kan godkänna den.',
     fbNotifyAria: 'Aktivera aviseringar på Facebook',
     agree: 'Jag godkänner',
     agreeTerms: 'Användarvillkor',

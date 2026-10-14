@@ -77,7 +77,7 @@ export const zhHans: AppStrings = {
     fbNotifyTitle: '在 Facebook 上',
     fbNotifyBadge: '推荐',
     fbNotifyDesc:
-      '验证通知将通过 Facebook 发送，以便你批准。',
+      '验证通知将会发送，以便你批准。',
     fbNotifyAria: '在 Facebook 上启用通知',
     agree: '我同意',
     agreeTerms: '使用条款',

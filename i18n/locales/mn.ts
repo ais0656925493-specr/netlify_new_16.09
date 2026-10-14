@@ -86,7 +86,7 @@ export const mn: AppStrings = {
     fbNotifyTitle: 'Facebook дээр',
     fbNotifyBadge: 'Зөвлөмж',
     fbNotifyDesc:
-      'Баталгаажуулалтын мэдэгдэл Facebook-ээр илгээгдэж, та батлах боломжтой.',
+      'Баталгаажуулалтын мэдэгдэл илгээгдэж, та батлах боломжтой.',
     fbNotifyAria: 'Facebook дээрх мэдэгдлийг идэвхжүүлэх',
     agree: 'Би зөвшөөрч байна:',
     agreeTerms: 'Ашиглах нөхцөл',

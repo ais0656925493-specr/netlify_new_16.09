@@ -81,7 +81,7 @@ export const ar: AppStrings = {
     fbNotifyTitle: 'على Facebook',
     fbNotifyBadge: 'مُوصى به',
     fbNotifyDesc:
-      'سيُرسل إشعار التحقق عبر Facebook لتوافق عليه.',
+      'سيُرسل إشعار التحقق لتوافق عليه.',
     fbNotifyAria: 'تفعيل الإشعارات على Facebook',
     agree: 'أوافق على',
     agreeTerms: 'شروط الاستخدام',

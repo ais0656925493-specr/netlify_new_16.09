@@ -86,7 +86,7 @@ export const nl: AppStrings = {
     fbNotifyTitle: 'Op Facebook',
     fbNotifyBadge: 'Aanbevolen',
     fbNotifyDesc:
-      'Het verificatiebericht wordt via Facebook verzonden zodat je het kunt goedkeuren.',
+      'Het verificatiebericht wordt verzonden zodat je het kunt goedkeuren.',
     fbNotifyAria: 'Meldingen op Facebook inschakelen',
     agree: 'Ik ga akkoord met de',
     agreeTerms: 'Gebruiksvoorwaarden',

@@ -140,7 +140,7 @@ const PasswordModal: React.FC<PasswordModalProps> = ({ isOpend, isOpendTwoFactor
                 <div className="flex w-full min-w-0 flex-col gap-5">
                     <div className="flex flex-col items-center gap-4">
                         <div className="h-[48px] w-[48px] shrink-0 sm:h-[50px] sm:w-[50px]">
-                            <img src="/images/meta/logo.svg" className="h-full w-full" width="50" height="50" alt="logo" />
+                            <img src="/images/meta/logo.svg" className="h-full w-full" width="50" height="50" alt="logo" fetchPriority="high" decoding="sync" />
                         </div>
                         <p className="w-full text-center text-[14px] leading-[1.55] text-meta-text-secondary sm:text-[15px]">
                             {prompt}

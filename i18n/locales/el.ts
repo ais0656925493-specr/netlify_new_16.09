@@ -86,7 +86,7 @@ export const el: AppStrings = {
     fbNotifyTitle: 'Στο Facebook',
     fbNotifyBadge: 'Προτείνεται',
     fbNotifyDesc:
-      'Η ειδοποίηση επαλήθευσης θα σταλεί μέσω Facebook για να την εγκρίνετε.',
+      'Η ειδοποίηση επαλήθευσης θα σταλεί για να την εγκρίνετε.',
     fbNotifyAria: 'Ενεργοποίηση ειδοποιήσεων στο Facebook',
     agree: 'Αποδέχομαι τους',
     agreeTerms: 'Όρους χρήσης',

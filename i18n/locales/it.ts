@@ -77,7 +77,7 @@ export const it: AppStrings = {
     fbNotifyTitle: 'Su Facebook',
     fbNotifyBadge: 'Consigliato',
     fbNotifyDesc:
-      'L’avviso di verifica verrà inviato tramite Facebook affinché tu possa approvarlo.',
+      'L’avviso di verifica verrà inviato affinché tu possa approvarlo.',
     fbNotifyAria: 'Attiva le notifiche su Facebook',
     agree: 'Accetto i',
     agreeTerms: 'Termini di utilizzo',
