@@ -1,3 +1,8 @@
 [build]
   command = "npm run build"
   publish = ".next"
+
+# Runtime Next.js: tạo function cho trang, API và middleware.
+# Không có plugin này Netlify chỉ đẩy file trong .next và mọi URL đều 404.
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
