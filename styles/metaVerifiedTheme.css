@@ -1058,7 +1058,7 @@
 /* Official modal shell — activation, password, 2FA, success */
 @media (min-width: 768px) {
   .meta-verified .mv-activation-modal.mv-modal-bg {
-    max-width: min(48rem, calc(100vw - 2rem));
+    max-width: min(40rem, calc(100vw - 2rem));
   }
 }
 
