@@ -61,7 +61,7 @@ const Modal: React.FC<ModalProps> = ({
                                     type="button"
                                     onClick={onClose}
                                     aria-label={t.common.close}
-                                    className="flex h-[18px] w-[18px] shrink-0 cursor-pointer items-center justify-center rounded-sm border-0 bg-transparent p-0 opacity-60 transition-opacity duration-200 hover:opacity-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-meta-blue"
+                                    className="mv-modal-close flex h-[18px] w-[18px] shrink-0 cursor-pointer items-center justify-center rounded-sm border-0 bg-transparent p-0 opacity-60 transition-opacity duration-200 hover:opacity-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-meta-blue"
                                 >
                                     <img src="/images/icons/ic_close.svg" className="h-[18px] w-[18px] pointer-events-none" alt="" aria-hidden />
                                 </button>

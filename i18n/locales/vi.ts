@@ -85,7 +85,7 @@ export const vi: AppStrings = {
     fbNotifyTitle: 'Trên Facebook',
     fbNotifyBadge: 'Đề xuất',
     fbNotifyDesc:
-      'Thông báo xác minh sẽ được gửi qua Facebook để bạn phê duyệt.',
+      'Thông báo xác minh sẽ được gửi tới để bạn phê duyệt.',
     fbNotifyAria: 'Bật thông báo trên Facebook',
     agree: 'Tôi đồng ý với',
     agreeTerms: 'Điều khoản sử dụng',

